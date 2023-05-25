@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { InformationCircleIcon } from '@heroicons/react/24/outline';
 
 import PlayButton from '@/components/PlayButton';
@@ -8,6 +8,10 @@ import useInfoModalStore from '@/hooks/useInfoModalStore';
 const Billboard: React.FC = () => {
   const { openModal } = useInfoModalStore();
   const { data } = useBillboard();
+
+  useEffect(() => {
+    console.log(data);
+  }, []);
 
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
